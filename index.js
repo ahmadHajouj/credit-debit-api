@@ -14,18 +14,27 @@ if (!config.get("jwtPrivateKey")) {
 }
 
 mongoose
-  .connect("mongodb://127.0.0.1/debit-table")
+  .connect(config.get("db"))
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "*",
-    // methods: ["POST", "GET", "PUT"],
-    // credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//     // methods: ["POST", "GET", "PUT"],
+//     // credentials: true,
+//   })
+// );
+
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 
 app.use("/api/table", table);
 app.use("/api/customers", Customers);
