@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", async (req, res) => {
+  res.set("Access-Control-Allow-Origin", "*");
   let user = await User.findOne({ name: req.body.name });
   if (!user) return res.status(400).send("Invalid username or password.");
 
