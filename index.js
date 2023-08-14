@@ -30,6 +30,7 @@ app.use(
       else callback(new Error("Not allowed by CORS"));
     },
     methods: "OPTIONS, DELETE, POST, GET, PATCH, PUT",
+    allowedHeaders: "*",
     credentials: true,
   })
 );
