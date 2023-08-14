@@ -29,6 +29,7 @@ app.use(
         callback(null, true);
       else callback(new Error("Not allowed by CORS"));
     },
+    methods: "XMLHttpRequest",
     credentials: true,
   })
 );
