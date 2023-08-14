@@ -19,7 +19,13 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "",
+    methods: ["POST", "GET", "PUT"],
+    credentials: true,
+  })
+);
 
 app.use("/api/table", table);
 app.use("/api/customers", Customers);
