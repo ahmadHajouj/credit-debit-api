@@ -19,22 +19,15 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
 app.use(express.json());
-app.options("*", cors());
+
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (
-        ["https://credit-debit-app.vercel.app"].indexOf(origin) !== -1 ||
-        !origin
-      )
-        callback(null, true);
-      else callback(new Error("Not allowed by CORS"));
-    },
-    methods: "OPTIONS, DELETE, POST, GET, PATCH, PUT",
-    allowedHeaders: "*",
+    origin: "https://credit-debit-app.vercel.app",
+    headers: ["Content-Type"],
     credentials: true,
   })
 );
+app.options("*", cors());
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
