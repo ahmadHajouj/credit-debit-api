@@ -34,6 +34,10 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.json("Hi");
+});
+
 app.use("/api/table", table);
 app.use("/api/customers", Customers);
 app.use("/api/users", users);
