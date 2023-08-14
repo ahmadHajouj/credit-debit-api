@@ -22,12 +22,12 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://credit-debit-app.vercel.app",
+    origin: ["https://credit-debit-app.vercel.app", "*"],
     headers: ["Content-Type"],
     credentials: true,
   })
 );
-app.options("*", cors());
+app.options("/auth", cors());
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
