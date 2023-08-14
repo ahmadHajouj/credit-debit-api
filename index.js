@@ -19,20 +19,20 @@ mongoose
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: "*",
-//     // methods: ["POST", "GET", "PUT"],
-//     // credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["POST", "GET", "PUT"],
+    credentials: true,
+  })
+);
 
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.header("Access-Control-Allow-Headers", "Content-type");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Methods", "POST, GET, PUT");
+//   res.header("Access-Control-Allow-Headers", "Content-type");
+//   next();
+// });
 
 app.get("/", (req, res) => {
   res.json("Hi");
