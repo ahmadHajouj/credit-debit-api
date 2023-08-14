@@ -1,0 +1,4 @@
+{
+  "jwtPrivateKey": "bndrapp_jwtPrivateKey",
+  "db": "bandrapp_db"
+}
