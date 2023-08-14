@@ -21,8 +21,14 @@ mongoose
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://credit-debit-app.vercel.app",
-    methods: ["POST", "GET", "PUT"],
+    origin: (origin, callback) => {
+      if (
+        ["https://credit-debit-app.vercel.app"].indexOf(origin) !== -1 ||
+        !origin
+      )
+        callback(null, true);
+      else callback(new Error("Not allowed by CORS"));
+    },
     credentials: true,
   })
 );
