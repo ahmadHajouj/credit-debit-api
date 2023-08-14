@@ -20,11 +20,12 @@ mongoose
 
 app.use(express.json());
 app.use(
-  cors({
-    origin: "http://localhost",
-    methods: ["POST", "GET", "PUT"],
-    credentials: true,
-  })
+  cors()
+  //   {
+  //   origin: "http://localhost",
+  //   methods: ["POST", "GET", "PUT"],
+  //   credentials: true,
+  // }
 );
 
 app.use("/api/table", table);
