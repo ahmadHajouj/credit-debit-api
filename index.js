@@ -27,10 +27,7 @@ app.use(
     credentials: true,
   })
 );
-app.options("*", (req, res) => {
-  console.log("Received OPTIONS request");
-  res.status(200).end();
-});
+app.options("*", cors());
 
 // app.use(function (req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
