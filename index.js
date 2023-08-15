@@ -8,13 +8,13 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-if (!config.get("jwtPrivateKey")) {
+if (!process.env.bndrapp_jwtPrivateKey) {
   console.error("FATAL ERROR: jwtPrivateKey is not defind");
   process.exit(1);
 }
 
 mongoose
-  .connect(config.get("db"))
+  .connect(process.env.bandrapp_db)
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
