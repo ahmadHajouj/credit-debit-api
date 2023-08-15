@@ -22,7 +22,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ["https://credit-debit-app.vercel.app", "*"],
+    origin: "https://credit-debit-app.vercel.app",
     methods: ["GET", "POST", "PUT", "OPTIONS"],
     headers: ["Content-Type"],
     credentials: true,
