@@ -14,7 +14,9 @@ if (!process.env.bndrapp_jwtPrivateKey) {
 }
 
 mongoose
-  .connect(process.env.bandrapp_db)
+  .connect(
+    "mongodb+srv://ahmad1416h:M8N47hwaFITT0Xxn@cluster0.twuwvve.mongodb.net/?retryWrites=true&w=majority"
+  )
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB..."));
 
